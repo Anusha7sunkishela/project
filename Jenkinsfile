@@ -28,7 +28,7 @@ pipeline {
                 echo 'Nexus new1..'
                 
 		sh 'mvn package'
-		sh 'cat ./target'
+		
                 
 	   }
         }
