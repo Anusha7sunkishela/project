@@ -19,7 +19,7 @@ pipeline {
 
               echo 'Sonar analysis....'
               sh 'mvn sonar:sonar \
-  -Dsonar.host.url=http://54.175.106.53:9000 \
+  -Dsonar.host.url=http://54.197.15.28:9000 \
  -Dsonar.login=9bba05bfe5803e4141ba9e52e0e46f08dc9f188e'
             }
         }
@@ -27,12 +27,13 @@ pipeline {
             steps {
                 echo 'Nexus..'
                 sh 'mvn deploy'
-            }
+                
+	   }
         }
           stage('Deploy') {
             steps {
                 echo 'Deploy..'
-                sh 'wget --user admin --password admin123 http://54.175.106.53:8081/nexus/service/local/repositories/releases/content/com/web/cal/WebAppCal/1.3.7/WebAppCal-1.3.7.war'
+                sh 'wget --user admin --password admin123 http://54.197.15.28:8081/nexus/service/local/repositories/releases/content/com/web/cal/WebAppCal/1.3.7/WebAppCal-1.3.7.war'
  sh 'sudo cp WebAppCal-1.3.7.war /home/centos/apache-tomcat-7.0.94/webapps'
             }
         }
