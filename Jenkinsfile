@@ -25,7 +25,7 @@ pipeline {
         }
          stage('Nexus') {
             steps {
-                echo 'Nexus..'
+                echo 'Nexus new..'
                 sh 'mvn deploy'
                 
 	   }
