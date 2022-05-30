@@ -9,6 +9,10 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   </properties>
+
   <name>WebAppCal Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
