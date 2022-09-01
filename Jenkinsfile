@@ -27,18 +27,32 @@ pipeline {
             steps {
                 echo 'Nexus new1..'
                 
-	         echo 'mvn deploy'
+	         sh 'mvn deploy'
 		
                 
 	   }
         }
-          stage('Deploy') {
-            steps {
-                echo 'Deploy..'
-                sh 'wget --user admin --password admin123 http://3.89.119.29:8081/nexus/service/local/repositories/releases/content/com/web/cal/WebAppCal/1.3.8/WebAppCal-1.3.8.war'
- sh 'sudo cp WebAppCal-1.3.8.war /home/centos/apache-tomcat-7.0.94/webapps'
+
+
+
+           stage('Docker Build') {
+             steps {
+                echo 'Docker Build..'
+                sh 'docker build -t Anu/mydockerimg .'
+
             }
         }
+		
+           stage('Docker Run') {
+             steps {
+                echo 'Docker RUN...'
+                sh 'docker run -dt --name myimg -p 8080:8090 Anu/mydockerimg'
+
+            }
+        }
+
+
+
 
     }
 }
