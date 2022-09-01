@@ -1,12 +1,12 @@
 # Select Base Image 
 FROM tomcat:8.0-alpine
-ARG tag
+ARG version
 
 
 
 # COPY will copy project war file to webapps directory in apache
 
-COPY tag /usr/local/tomcat/webapps
+COPY WebAppCal.version /usr/local/tomcat/webapps
 
 EXPOSE 8090
 
