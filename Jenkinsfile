@@ -27,7 +27,7 @@ pipeline {
             steps {
                 echo 'Nexus new1..'
                 
-	          echo  'mvn deploy'
+	          sh  'mvn deploy'
 		
                 
 	   }
