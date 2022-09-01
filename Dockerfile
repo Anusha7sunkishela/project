@@ -6,7 +6,7 @@ ARG version
 
 # COPY will copy project war file to webapps directory in apache
 
-COPY WebAppCal.version /usr/local/tomcat/webapps
+COPY WebAppCal-version.war /usr/local/tomcat/webapps
 
 EXPOSE 8090
 
