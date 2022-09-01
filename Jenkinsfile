@@ -38,7 +38,7 @@ pipeline {
            stage('Docker Build') {
              steps {
                 echo 'Docker Build..'
-                sh 'docker build -t Anu/mydockerimg .'
+                sh 'docker build -t anu/mydockerimg .'
 
             }
         }
@@ -46,7 +46,7 @@ pipeline {
            stage('Docker Run') {
              steps {
                 echo 'Docker RUN...'
-                sh 'docker run -dt --name myimg -p 8080:8090 Anu/mydockerimg'
+                sh 'docker run -dt --name myimg -p 8080:8090 anu/mydockerimg'
 
             }
         }
