@@ -57,7 +57,7 @@ pipeline {
            stage('Docker Run') {
              steps {
                 echo 'Docker RUN...'
-                sh 'docker run -dt --name myimg -p 8080:8090 anu/mydockerimg'
+                sh 'docker run -dt --name myimg -p 8090:8080 anu/mydockerimg'
 
             }
         }
