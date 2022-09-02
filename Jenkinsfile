@@ -19,10 +19,21 @@ pipeline {
 
               echo 'Sonar analysis....'
               sh 'mvn sonar:sonar \
-  -Dsonar.host.url=http://23.22.217.47:9000 \
+  -Dsonar.host.url=http://3.91.150.24:9000 \
  -Dsonar.login=88660653ece851c86471b5a0c3cd491255e4a1db'
             }
         }
+
+       stage('Package') {
+            steps {
+                echo 'converting src code into war file..'
+                sh 'mvn clean package'
+            }
+        }
+
+
+
+
          stage('Nexus') {
             steps {
                 echo 'Nexus new1..'
